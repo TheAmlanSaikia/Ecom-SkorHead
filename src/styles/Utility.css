@@ -1,0 +1,22 @@
+@import url(/src/styles/Color.css);
+
+/* .link-text {
+  color: blue;
+} */
+
+.no-style {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--pure-white);
+}
+.pointer {
+  cursor: pointer;
+}
+
+.logo-text{
+  color: var(--theme-color);
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: 'Hurricane', cursive;
+}
