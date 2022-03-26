@@ -1,0 +1,36 @@
+
+
+.category-card {
+    width: 16vw;
+    height: 23.815rem;
+    border-radius: 0.3rem;
+    text-align: left;
+    margin: var(--value-1);
+  }
+  
+  .category-image-container{
+      height: 75%;
+  }
+  
+  .category-image{
+      max-inline-size: 100%;
+      block-size: auto;
+      object-fit: cover;
+      object-position: top center;
+  }
+  
+  @media only screen and (max-width: 750px) {
+      .category-card {
+          width: 40vw;
+          max-height: 60vh;
+          text-align: center;
+        }
+  }
+  
+  @media only screen and (min-width: 1630px) {
+      .category-card {
+          width: 16vw;
+          max-height: 60vh;
+          text-align: center;
+        }
+  }
