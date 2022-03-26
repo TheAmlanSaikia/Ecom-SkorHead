@@ -2,6 +2,7 @@ import "./Home.css";
 import bannerImage from "../../assests/images/Shoe Banner Picture -1.jpg";
 import { Navigation } from "../../components";
 import { CategoriesCards } from "../../components/Category Cards/Category";
+import { Footer } from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -34,7 +35,7 @@ const Home = () => {
           <CategoriesCards />
         </section>
       </main>
-      <footer className='footer footer-container'></footer>
+      <Footer />
     </div>
   );
 };

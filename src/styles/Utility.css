@@ -1,9 +1,5 @@
 @import url(/src/styles/Color.css);
 
-/* .link-text {
-  color: blue;
-} */
-
 .no-style {
   margin: 0;
   padding: 0;
@@ -20,3 +16,8 @@
   font-weight: 500;
   font-family: 'Hurricane', cursive;
 }
+
+.themetext{
+  color: var(--theme-color);
+ 
+ }
