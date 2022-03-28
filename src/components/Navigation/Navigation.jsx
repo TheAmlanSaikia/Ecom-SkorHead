@@ -23,19 +23,19 @@ const Navigation = () => {
       <ul className='navlinks-secondary flex-row ml-auto list-style-none'>
         <li className='navlinks text-md'>
           <a href='/Login/login.html' className='link navbar-link'>
-            <i class='fa-solid fal-lg fa-user'></i>
+            <i className='fa-solid fal-lg fa-user'></i>
             <p className='text-sm'>Profile</p>
           </a>
         </li>
         <li className='navlinks text-md mx-1'>
           <a href='/Wishlist/wishlist.html' className='link navbar-link'>
-            <i class='fa-solid fa-lg fa-heart'></i>
+            <i className='fa-solid fa-lg fa-heart'></i>
             <p className='text-sm'>Wishlist</p>
           </a>
         </li>
         <li className='navlinks text-md mr-3'>
           <a href='/Cart/Cart.html' className='link navbar-link'>
-            <i class='fa-solid fa-lg fa-bag-shopping'></i>
+            <i className='fa-solid fa-lg fa-bag-shopping'></i>
             <p className='text-sm'>Bag</p>
           </a>
         </li>
