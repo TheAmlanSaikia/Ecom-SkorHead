@@ -12,7 +12,6 @@ const CategoriesCards = () => {
             <img src={e.image} alt='Category' className='category-image' />
           </section>
           <h2 className='ml-1'>Shop</h2>
-          {console.log(e.image)}
           <h2 className='ml-1 pb-1'>{e.category}</h2>
         </main>
       ))}

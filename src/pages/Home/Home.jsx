@@ -1,13 +1,13 @@
 import "./Home.css";
 import bannerImage from "../../assests/images/Shoe Banner Picture -1.jpg";
-import { Navigation } from "../../components";
 import { CategoriesCards } from "../../components/Category Cards/Category";
 import { Footer } from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  
   return (
-    <div className='grid-container'>
-      <Navigation />
+    <div className='home-grid-container'>
       <header className='header-banner'>
         <section className='banner-wrapper flex-row justify-center relative'>
           <img
@@ -19,11 +19,11 @@ const Home = () => {
         <p className='banner-title absolute'>
           Hungry for a sneaker?<span className='themetext'>Perfect.</span>
         </p>
-        <a
-          href='/'
+        <Link
+          to="/products"
           className='btn btn-primary-round btn-primary-outline banner-btn absolute'>
           <h5>Take Me!</h5>
-        </a>
+        </Link>
       </header>
       <main className='main main-container mt-2'>
         <h2 className='mid-text'>
