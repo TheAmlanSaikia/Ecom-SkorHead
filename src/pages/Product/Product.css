@@ -1,0 +1,81 @@
+
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+hr {
+  margin: 0;
+}
+
+.grid-container-product {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "navbar navbar navbar navbar navbar navbar"
+    "header header header header header header"
+    "aside main main main main main"
+    "aside main main main main main"
+    "aside main main main main main"
+    "footer footer footer footer footer footer";
+}
+
+
+.header-container {
+  grid-area: header;
+  min-height: 11vh;
+  width: 100%;
+}
+
+.header-info {
+  margin-top: var(--value-3);
+  margin-left: var(--value-2);
+}
+
+.aside-container {
+  grid-area: aside;
+  width: 18vw;
+  margin-left: var(--value-2);
+}
+
+.filter-title-container {
+  width: 100%;
+  padding: var(--value-1) 0;
+}
+
+.filter-list {
+  border-right: 1.8px solid var(--line-color);
+}
+
+.filter-category-container {
+  width: 100%;
+  padding: var(--value-1);
+  border-top: 1.8px solid var(--line-color);
+}
+
+.filter-name {
+  padding-bottom: var(--value-1);
+}
+
+.form-label {
+  padding-bottom: var(--value-1);
+}
+
+.main-container-product{
+  grid-area: main;
+  margin-top: 3.1rem;
+  border-top: 1.8px solid var(--line-color);
+  height: max-content;
+}
+.card-btn-fix{
+  margin-top: 5px;
+}
+
+.footer-container {
+  grid-area: footer;
+  width: 100vw;
+  height: 50vh;
+  background-color: var(--footer-bg-color);
+}

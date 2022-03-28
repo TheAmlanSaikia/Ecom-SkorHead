@@ -6,7 +6,7 @@ body {
   overflow-x: clip;
 }
 
-.grid-container {
+.home-grid-container {
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -16,6 +16,7 @@ body {
     "main main main main main main"
     "main main main main main main"
     "footer footer footer footer footer footer";
+    text-align: center;
 }
 
 
