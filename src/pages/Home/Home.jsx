@@ -5,7 +5,6 @@ import { Footer } from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  
   return (
     <div className='home-grid-container'>
       <header className='header-banner'>
@@ -20,7 +19,7 @@ const Home = () => {
           Hungry for a sneaker?<span className='themetext'>Perfect.</span>
         </p>
         <Link
-          to="/products"
+          to='/products'
           className='btn btn-primary-round btn-primary-outline banner-btn absolute'>
           <h5>Take Me!</h5>
         </Link>

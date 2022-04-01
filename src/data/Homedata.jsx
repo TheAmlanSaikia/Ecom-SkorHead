@@ -4,36 +4,32 @@ import Running from "../assests/images/Categories/Running_Shoes_Purple-removebg-
 import SlipOn from "../assests/images/Categories/Slipon_prev_ui.png";
 import Authentic from "../assests/images/Categories/authentic shoes_prev_ui.png";
 
-
-
-
 const CategoriesData = [
-    {
-        category:"Chuck Taylor",
-        image: ChuckTaylor,
-        color: "#f88d6b",
-    },
-    {
-        category:"BasketBall",
-        image: BasketBall,
-        color:"#e3d2ff",
-    },
-    {
-        category:"Running",
-        image:Running,
-        color:"#fce8e9",
-    },
-    {
-        category:"Slip-on",
-        image:SlipOn,
-        color:"#d7faff",
-    },
-    {
-        category:"Authentic",
-        image:Authentic,
-        color:'#fde9ea',
-    },
+  {
+    category: "ChuckTaylor",
+    image: ChuckTaylor,
+    color: "#f88d6b",
+  },
+  {
+    category: "Basketball",
+    image: BasketBall,
+    color: "#e3d2ff",
+  },
+  {
+    category: "Running",
+    image: Running,
+    color: "#fce8e9",
+  },
+  {
+    category: "SlipOn",
+    image: SlipOn,
+    color: "#d7faff",
+  },
+  {
+    category: "Authentic",
+    image: Authentic,
+    color: "#fde9ea",
+  },
 ];
-
 
 export { CategoriesData };

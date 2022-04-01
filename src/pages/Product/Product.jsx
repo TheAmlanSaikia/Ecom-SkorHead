@@ -8,11 +8,15 @@ import {
   PriceFilter,
   VerticalCards,
 } from "../../components";
+import { useFilter } from "../../context/Filtercontext";
+import {
+  getSortedProducts,
+  getCategoryFilteredProducts,
+  getBrandFilteredProducts,
+} from "../../utility";
 import "./Product.css";
 
 const Products = () => {
-  
-  
   const [productList, setProductList] = useState(null);
 
   useEffect(() => {
@@ -29,13 +33,25 @@ const Products = () => {
     })();
   }, []);
 
-  return (
+  const { state, dispatch } = useFilter();
 
+  const sortedProducts = getSortedProducts(productList, state.sortBy);
+  const categoryfilteredProducts = getCategoryFilteredProducts(
+    sortedProducts,
+    state.categories
+  );
+  const brandfilteredProducts = getBrandFilteredProducts(
+    categoryfilteredProducts,
+    state.brands
+  );
+
+  const lengthOfProducts = brandfilteredProducts && brandfilteredProducts.length;
+
+  return (
     <div className='grid-container-product'>
-      
       <header className='header-container flex-col'>
         <h6 className='header-info'>
-          SkorHead Products-<span className='text-md'> 200 Items</span>
+          SkorHead Products-<span className='text-md'> {lengthOfProducts} Items</span>
         </h6>
       </header>
 
@@ -44,10 +60,13 @@ const Products = () => {
           <button className='no-style pointer'>
             <h6 className='filter-header'>FILTER</h6>
           </button>
-          <button className='no-style pointer'>
+          <button
+            className='no-style pointer'
+            onClick={() => dispatch({ type: "ALL_CLEAR", payload: "" })}>
             <p className='text-md filter-clear'>CLEAR ALL</p>
           </button>
         </div>
+
         <ul className='list-style-none filter-list'>
           <PriceFilter />
           <CategoryFilter />
@@ -58,7 +77,7 @@ const Products = () => {
       <main className='main main-container-product'>
         <div className='products-cards-display flex-row flex-wrap p-3'>
           {productList &&
-            productList.map(
+            brandfilteredProducts.map(
               ({
                 _id,
                 title,
@@ -93,7 +112,7 @@ const Products = () => {
             )}
         </div>
       </main>
-    <Footer />
+      <Footer />
     </div>
   );
 };

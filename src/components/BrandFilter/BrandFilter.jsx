@@ -1,8 +1,10 @@
-
-
-
+import { useFilter } from "../../context/Filtercontext";
 
 const BrandFilter = () => {
+  const { state, dispatch } = useFilter();
+  const { brands } = state;
+  const { Nike, Adidas, Converse, Vans } = brands;
+
   return (
     <div>
       <li className='filter-category-container'>
@@ -13,7 +15,11 @@ const BrandFilter = () => {
               type='checkbox'
               name='category'
               className='form-checkbox-field'
-              value='NIKE'
+              value='Nike'
+              onChange={(e) =>
+                dispatch({ type: "BRAND_FILTER", payload: e.target.value })
+              }
+              checked={Nike}
             />
             NIKE
           </label>
@@ -23,6 +29,10 @@ const BrandFilter = () => {
               type='checkbox'
               name='category'
               value='Adidas'
+              onChange={(e) =>
+                dispatch({ type: "BRAND_FILTER", payload: e.target.value })
+              }
+              checked={Adidas}
             />
             Adidas
           </label>
@@ -31,7 +41,11 @@ const BrandFilter = () => {
               className='form-checkbox-field'
               type='checkbox'
               name='category'
-              value='VANS'
+              value='Vans'
+              onChange={(e) =>
+                dispatch({ type: "BRAND_FILTER", payload: e.target.value })
+              }
+              checked={Vans}
             />
             VANS
           </label>
@@ -40,7 +54,11 @@ const BrandFilter = () => {
               className='form-checkbox-field'
               type='checkbox'
               name='category'
-              value='Puma'
+              value='Converse'
+              onChange={(e) =>
+                dispatch({ type: "BRAND_FILTER", payload: e.target.value })
+              }
+              checked={Converse}
             />
             Converse
           </label>

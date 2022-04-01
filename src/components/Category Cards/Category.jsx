@@ -6,6 +6,7 @@ const CategoriesCards = () => {
     <>
       {CategoriesData.map((e) => (
         <main
+          key={e.category}
           style={{ backgroundColor: e.color }}
           className='category-card card-shadow mr-1'>
           <section className='category-image-container'>
