@@ -1,4 +1,4 @@
-import { useFilter } from "../../context/Filtercontext";
+import { useFilter } from "../../context";
 
 const BrandFilter = () => {
   const { state, dispatch } = useFilter();

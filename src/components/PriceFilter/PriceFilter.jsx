@@ -1,4 +1,5 @@
-import { useFilter } from "../../context/Filtercontext.js";
+
+import { useFilter } from "../../context";
 
 const PriceFilter = () => {
   const { state, dispatch } = useFilter();

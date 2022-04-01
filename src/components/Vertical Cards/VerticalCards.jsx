@@ -1,7 +1,5 @@
 import "./ProductVerticalCards.css";
 
-
-
 const VerticalCards = (props) => {
   return (
     <div>

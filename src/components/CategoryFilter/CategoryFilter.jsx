@@ -1,4 +1,4 @@
-import { useFilter } from "../../context/Filtercontext";
+import { useFilter } from "../../context";
 
 const CategoryFilter = () => {
   const { state, dispatch } = useFilter();

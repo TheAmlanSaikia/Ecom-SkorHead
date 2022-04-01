@@ -35,7 +35,7 @@ const ReducerFunction = (state, { type, payload }) => {
       };
     }
     default:
-      return state;
+        throw new Error("Action type not found.");
   }
 };
 
