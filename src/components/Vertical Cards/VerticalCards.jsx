@@ -1,3 +1,5 @@
+import "./ProductVerticalCards.css";
+
 const VerticalCards = (props) => {
   return (
     <div>
@@ -14,7 +16,7 @@ const VerticalCards = (props) => {
           <div className='card-text-container'>
             <div className='title-container'>
               <h5 className='card-title title-icon'>{props.title}</h5>
-              <button className='wishlist-btn'>
+              <button className='wishlist-btn wishlist-btn-hover'>
                 <i className='fa-solid fa-heart fa-lg wishlist-icon'></i>
               </button>
             </div>

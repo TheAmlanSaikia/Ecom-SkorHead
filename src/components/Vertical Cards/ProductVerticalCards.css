@@ -1,0 +1,12 @@
+.card-btn-fix{
+    margin-top: 5px;
+  }
+
+.card-btn-fix:hover{
+    background-color: var(--theme-color);
+    color: var(--pure-white);
+}
+
+.wishlist-btn-hover:hover{
+    color: var(--theme-color);
+}
