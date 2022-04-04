@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
 
@@ -34,10 +35,10 @@ const Navigation = () => {
           </a>
         </li>
         <li className='navlinks text-md mr-3'>
-          <a href='/Cart/Cart.html' className='link navbar-link'>
+          <Link to='/cart' className='link navbar-link'>
             <i className='fa-solid fa-lg fa-bag-shopping'></i>
             <p className='text-sm'>Bag</p>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

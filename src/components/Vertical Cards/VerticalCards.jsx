@@ -4,6 +4,11 @@ const VerticalCards = (props) => {
   return (
     <div>
       <main key={props.id} className='vertical-cardbody card-shadow'>
+        {props.inStock === false && (
+          <section className='overlay-section'>
+            <h3 className='overlay-text'> Out of stock </h3>
+          </section>
+        )}
         <section className='image-container'>
           <img
             className='cover-image potrait-image'
