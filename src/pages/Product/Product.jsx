@@ -43,13 +43,15 @@ const Products = () => {
     state.brands
   );
 
-  const lengthOfProducts = brandfilteredProducts && brandfilteredProducts.length;
+  const lengthOfProducts =
+    brandfilteredProducts && brandfilteredProducts.length;
 
   return (
     <div className='grid-container-product'>
       <header className='header-container flex-col'>
         <h6 className='header-info'>
-          SkorHead Products-<span className='text-md'> {lengthOfProducts} Items</span>
+          SkorHead Products-
+          <span className='text-md'> {lengthOfProducts} Items</span>
         </h6>
       </header>
 
@@ -85,20 +87,20 @@ const Products = () => {
                 discount,
                 categoryName,
                 inStock,
-                description
-              }) =>
-                  
-              <VerticalCards
-                    id={_id}
-                    title={title}
-                    brand={brand}
-                    price={price}
-                    image={image}
-                    discount={discount}
-                    categoryName={categoryName}
-                    inStock={inStock}
-                    description={description}
-                  />
+                description,
+              }) => (
+                <VerticalCards
+                  id={_id}
+                  title={title}
+                  brand={brand}
+                  price={price}
+                  image={image}
+                  discount={discount}
+                  categoryName={categoryName}
+                  inStock={inStock}
+                  description={description}
+                />
+              )
             )}
         </div>
       </main>
