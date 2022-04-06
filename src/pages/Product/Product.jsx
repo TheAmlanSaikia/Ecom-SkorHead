@@ -4,11 +4,10 @@ import {
   BrandFilter,
   CategoryFilter,
   Footer,
-  NilStockVerticalCards,
   PriceFilter,
   VerticalCards,
 } from "../../components";
-import { useFilter } from "../../context";
+import { useFilter } from "../../context/Filtercontext";
 import {
   getSortedProducts,
   getCategoryFilteredProducts,
@@ -34,7 +33,6 @@ const Products = () => {
   }, []);
 
   const { state, dispatch } = useFilter();
-
   const sortedProducts = getSortedProducts(productList, state.sortBy);
   const categoryfilteredProducts = getCategoryFilteredProducts(
     sortedProducts,
@@ -87,9 +85,10 @@ const Products = () => {
                 discount,
                 categoryName,
                 inStock,
+                description
               }) =>
-                inStock === true ? (
-                  <VerticalCards
+                  
+              <VerticalCards
                     id={_id}
                     title={title}
                     brand={brand}
@@ -97,18 +96,9 @@ const Products = () => {
                     image={image}
                     discount={discount}
                     categoryName={categoryName}
+                    inStock={inStock}
+                    description={description}
                   />
-                ) : (
-                  <NilStockVerticalCards
-                    id={_id}
-                    title={title}
-                    brand={brand}
-                    price={price}
-                    image={image}
-                    discount={discount}
-                    categoryName={categoryName}
-                  />
-                )
             )}
         </div>
       </main>

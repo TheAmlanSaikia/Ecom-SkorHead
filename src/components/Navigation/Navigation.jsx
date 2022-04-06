@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+import { useCart } from "../../context";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
 
 const Navigation = () => {
+  const { cartState } = useCart();
+  const NumOfProducts = cartState.products.length;
+
   return (
     <nav className='navbar sticky flex-row items-center flew-wrap'>
       <div className='hamburger'></div>
@@ -34,10 +39,15 @@ const Navigation = () => {
           </a>
         </li>
         <li className='navlinks text-md mr-3'>
-          <a href='/Cart/Cart.html' className='link navbar-link'>
+          <Link to='/cart' className='link navbar-link avatar'>
             <i className='fa-solid fa-lg fa-bag-shopping'></i>
+            {NumOfProducts > 0 && (
+              <span className='badge-status absolute  badge-status-number ml-1'>
+                {NumOfProducts}
+              </span>
+            )}
             <p className='text-sm'>Bag</p>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
