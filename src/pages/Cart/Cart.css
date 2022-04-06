@@ -68,6 +68,14 @@ body {
     margin-right: 5px;
   }
 
+  .empty-btn{
+     border:  1.5px solid var(--theme-color);
+     color: var(--theme-color);
+     padding: 10px 0 10px 0;
+     font-size: 1.5rem;
+
+  }
+
 
   .checkout-price-container {
     width: 50%;

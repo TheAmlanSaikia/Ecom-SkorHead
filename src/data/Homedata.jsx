@@ -11,7 +11,7 @@ const CategoriesData = [
     color: "#f88d6b",
   },
   {
-    category: "Basketball",
+    category: "BasketBall",
     image: BasketBall,
     color: "#e3d2ff",
   },

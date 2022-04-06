@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+import { useCart } from "../../context";
 import "./ProductVerticalCards.css";
 
 const VerticalCards = (props) => {
+  const { cartState, cartDispatch } = useCart();
+
   return (
     <div>
       <main key={props.id} className='vertical-cardbody card-shadow'>
@@ -32,9 +36,26 @@ const VerticalCards = (props) => {
               <span className='ml-1 text-md'>({props.discount}%OFF)</span>
             </h6>
           </div>
-          <button className='btn-card btn-cart card-btn-fix'>
+          {cartState.products.some((item) => item.id === props.id)?
+            <>
+            <Link to="/cart">
+            <button className='btn-card btn-cart card-btn-fix'>
+              Go to Cart
+            </button>
+            </Link>
+            </>:
+             <>
+            <button
+            className='btn-card btn-cart card-btn-fix'
+            onClick={() =>
+              cartDispatch({ type: "ADD_TO_CART", payload: props })
+            }>
             Add to Cart
           </button>
+            </>
+          }
+
+          
         </section>
       </main>
     </div>

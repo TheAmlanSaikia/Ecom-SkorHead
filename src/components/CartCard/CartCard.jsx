@@ -1,31 +1,51 @@
-const CartCard = () => {
+import { useCart } from "../../context";
+
+const CartCard = (props) => {
+  const { cartDispatch } = useCart();
+
   return (
     <>
-      <li className='card-item mt-2'>
+      <li key={props.id} className='card-item mt-2'>
         <div className='cart-card flex-row items-center'>
           <img
-            src='https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/air%20Jordon%20Myntra.webp'
+            src={props.image}
             loading='lazy'
             className='square-image m-1 cart-card-image'
-            alt='Jordon'
+            alt='Shoe'
           />
           <div className='product-info '>
-            <p className='text-md'>Nike AIR Jordan 1 Mid-Sole</p>
-            <span className='text-sm'>Limited Edition Red Soles</span>
+            <p className='text-md'>
+              {props.brand} {props.title}
+            </p>
+            <span className='text-sm'>{props.description}</span>
           </div>
           <div className='cart-card-price'>
-            <h5 className='mt-1'>Rs 10988</h5>
+            <h5 className='mt-1 ml-1'>Rs {props.price * props.quantity}</h5>
             <div className='ml-2 flex-row'>
-              <button className='cart-card-btn'>
-                <i class='fa-solid fa-plus'></i>
+              <button
+                className='cart-card-btn'
+                onClick={() =>
+                  cartDispatch({ type: "INCREASE_QUANTITY", payload: props })
+                }>
+                <i className='fa-solid fa-plus'></i>
               </button>
-              <span className='text-md card-qty-text'>{2}</span>
-              <button className='cart-card-btn'>
-                <i class='fa-solid fa-minus'></i>
+              <span className='text-md card-qty-text'>
+                <span className='text-lg'>{props.quantity}</span>
+              </span>
+              <button
+                className='cart-card-btn'
+                onClick={() =>
+                  cartDispatch({ type: "DECREASE_QUANTITY", payload: props })
+                }>
+                <i className='fa-solid fa-minus'></i>
               </button>
             </div>
           </div>
-          <button className='mr-1 no-style checkout-delete-btn'>
+          <button
+            className='mr-1 no-style checkout-delete-btn pointer'
+            onClick={() =>
+              cartDispatch({ type: "DELETE_FROM_CART", payload: props })
+            }>
             <i className='fa-solid fa-trash fa-lg'></i>
           </button>
         </div>

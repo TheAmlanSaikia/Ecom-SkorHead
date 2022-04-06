@@ -33,7 +33,6 @@ const Products = () => {
   }, []);
 
   const { state, dispatch } = useFilter();
-
   const sortedProducts = getSortedProducts(productList, state.sortBy);
   const categoryfilteredProducts = getCategoryFilteredProducts(
     sortedProducts,
@@ -86,6 +85,7 @@ const Products = () => {
                 discount,
                 categoryName,
                 inStock,
+                description
               }) =>
                   
               <VerticalCards
@@ -97,6 +97,7 @@ const Products = () => {
                     discount={discount}
                     categoryName={categoryName}
                     inStock={inStock}
+                    description={description}
                   />
             )}
         </div>
