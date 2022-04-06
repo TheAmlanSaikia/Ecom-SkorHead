@@ -19,7 +19,6 @@ const CheckOut = () => {
             <p className='text-md'>Discount</p>
             <p className='value'>₹ 299.00</p>
           </div>
-``
           <div className='mrp flex-row justify-between mt-1 checkout-row'>
             <p className='text-md'>Convenience Fee</p>
             <p className='value'>Free</p>
