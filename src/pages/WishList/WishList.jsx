@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+
 import { Footer } from "../../components";
 import { useCart, useWishlist } from "../../context";
 import "./WishList.css";
 
 const WishList = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
-  const { cartState, cartDispatch } = useCart();
+  const {  cartDispatch } = useCart();
   return (
     <div className='wishlist-grid-container'>
       <header className='header wishlist-header-container mr-auto ml-auto mt-3'>
