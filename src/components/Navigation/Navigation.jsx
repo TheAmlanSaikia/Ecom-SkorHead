@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../context";
+import { useCart, useWishlist } from "../../context";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
 
 const Navigation = () => {
   const { cartState } = useCart();
+  const { wishlistState } = useWishlist();
+
   const NumOfProducts = cartState.products.length;
+  const NumOfWishlist = wishlistState.items.length;
 
   return (
     <nav className='navbar sticky flex-row items-center flew-wrap'>
@@ -33,10 +36,15 @@ const Navigation = () => {
           </a>
         </li>
         <li className='navlinks text-md mx-1'>
-          <a href='/Wishlist/wishlist.html' className='link navbar-link'>
+          <Link to='/wishlist' className='link navbar-link avatar'>
             <i className='fa-solid fa-lg fa-heart'></i>
+            {NumOfWishlist > 0 && (
+              <span className='badge-status absolute  badge-status-number ml-1'>
+                {NumOfWishlist}
+              </span>
+            )}
             <p className='text-sm'>Wishlist</p>
-          </a>
+          </Link>
         </li>
         <li className='navlinks text-md mr-3'>
           <Link to='/cart' className='link navbar-link avatar'>
