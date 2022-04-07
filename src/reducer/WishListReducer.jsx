@@ -1,5 +1,5 @@
 const WishListReducer = (wishlistState, { type, payload }) => {
-  // console.log(wishlistState, type, payload)
+
   switch (type) {
     case "ADD_TO_WISHLIST":
       return {
