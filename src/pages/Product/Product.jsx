@@ -7,6 +7,7 @@ import {
   PriceFilter,
   VerticalCards,
 } from "../../components";
+
 import { useFilter } from "../../context/Filtercontext";
 import {
   getSortedProducts,

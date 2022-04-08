@@ -19,11 +19,16 @@ const CartReducer = (cartState, { type, payload }) => {
       return {
         ...cartState,
         products: cartState.products.map((item) => {
-          if (item.quantity > 1) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
+           if( item.id === payload.id){
+            if (item.quantity > 1) {
+              return { ...item, quantity: item.quantity - 1 };
+            } else {
+              return item;
+            }
+           } else {
+             return item;
+           }
+         
         }),
       };
 
