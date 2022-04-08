@@ -6,6 +6,7 @@ const CategoryFilter = () => {
   const { ChuckTaylor, BasketBall, Authentic, Running, SlipOn } = categories;
 
   return (
+
     <div>
       <li className='filter-category-container'>
         <div className='filter-shoetype-container'>

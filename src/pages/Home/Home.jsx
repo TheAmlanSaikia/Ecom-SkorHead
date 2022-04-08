@@ -34,6 +34,7 @@ const Home = () => {
           <CategoriesCards />
         </section>
       </main>
+      
       <Footer />
     </div>
   );

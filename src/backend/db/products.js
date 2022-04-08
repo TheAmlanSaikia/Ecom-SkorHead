@@ -60,7 +60,7 @@
               brand: "Nike",
               price: "15000",
               image:
-                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/9142d4aa-ef07-40b9-bb64-0a057cf8a1a3.webp",
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/996133ff-3007-4990-b855-9ea563041c011643276727223-Air-Jordan-5-Retro-Mens-Shoe-4481643276726732-1.webp",
               discount: Math.floor(Math.random() * 100),
               categoryName: "BasketBall",
               inStock: true,
@@ -72,7 +72,7 @@
               brand: "Nike",
               price: "12499",
               image:
-                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Nike%20Floral.webp",
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/lebron.webp",
               discount: Math.floor(Math.random() * 100),
               categoryName: "Running",
               inStock: true,
@@ -84,7 +84,7 @@
               brand: "Nike",
               price: "2000",
               image:
-                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/NIKE%20air%20force%201.webp",
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/98534d33-4a2e-418c-a730-bd592b5f0f471648201191652-AIR-FORCE-1-07-LV8-2-2351648201191379-1.webp",
               discount: Math.floor(Math.random() * 100),
               categoryName: "Running",
               inStock: false,
@@ -96,7 +96,7 @@
               brand: "Vans",
               price: "8000",
               image:
-                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/vans%20slipon%20new.webp",
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/0b9d4295-8267-4afa-9216-094d9e4905fd1597823276694-4.webp",
               discount: Math.floor(Math.random() * 100),
               categoryName: "SlipOn",
               inStock: true,
@@ -108,7 +108,7 @@
               brand: "Vans",
               price: "6000",
               image:
-                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/vans%20authentic.png",
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/17b51932-84de-4b72-89a9-328d43036a761644548424153VansUnisexBlackSneakers4.webp",
               discount: Math.floor(Math.random() * 100),
               categoryName: "Authentic",
               inStock: false,

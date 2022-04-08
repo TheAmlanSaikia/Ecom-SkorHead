@@ -1,30 +1,37 @@
 import "./Category.css";
-import { CategoriesData } from "../../data/Homedata";
 import { Link } from "react-router-dom";
-import { useFilter } from "../../context";
+import { useCategory, useFilter } from "../../context";
 
 const CategoriesCards = () => {
   const { dispatch } = useFilter();
-
+  const { categoriesdata } = useCategory();
   return (
     <>
-      {CategoriesData.map((e) => (
-        <main
-          key={e.category}
-          style={{ backgroundColor: e.color }}
-          className='category-card card-shadow mr-1'
-          onClick={() =>
-            dispatch({ type: "ADD_CATEGORIES", payload: e.category })
-          }>
-          <Link to='/products'>
-            <section className='category-image-container'>
-              <img src={e.image} alt='Category' className='category-image' />
-            </section>
-            <h2 className='ml-1 category-text-color'>Shop</h2>
-            <h2 className='ml-1 pb-1 category-text-color'>{e.category}</h2>
-          </Link>
-        </main>
-      ))}
+      {categoriesdata &&
+        categoriesdata.map((item) => (
+          <main
+            key={item._id}
+            style={{ backgroundColor: item.color }}
+            className='category-card card-shadow mr-1'
+            onClick={() =>
+              dispatch({ type: "ADD_CATEGORIES", payload: item.categoryName })
+            }>
+            <Link to='/products'>
+              <section className='category-image-container'>
+                <img
+                  src={item.image}
+                  alt='Category'
+                  className='category-image'
+                />
+              </section>
+              <h2 className='ml-1 category-text-color'>Shop</h2>
+              <h2 className='ml-1 pb-1 category-text-color'>
+                {item.categoryName}
+              </h2>
+            </Link>
+            {categoriesdata && console.log(categoriesdata)}
+          </main>
+        ))}
     </>
   );
 };
