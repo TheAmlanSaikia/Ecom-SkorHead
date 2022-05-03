@@ -29,7 +29,6 @@ const CategoriesCards = () => {
                 {item.categoryName}
               </h2>
             </Link>
-            {categoriesdata && console.log(categoriesdata)}
           </main>
         ))}
     </>

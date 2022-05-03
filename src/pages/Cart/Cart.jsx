@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { CartCard, CheckOut } from "../../components";
 import { useCart } from "../../context";
+import { useTitle } from "../../hooks/useTitle";
 import "./Cart.css";
 
 const Cart = () => {
   const { cartState } = useCart();
-  
+  useTitle("Cart");
+
   return (
     <div className='cart-grid-container'>
       <header className='header header-container'>

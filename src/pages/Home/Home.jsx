@@ -3,8 +3,12 @@ import bannerImage from "../../assests/images/Shoe Banner Picture -1.jpg";
 import { CategoriesCards } from "../../components/Category Cards/Category";
 import { Footer } from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
+import { useTitle } from "../../hooks/useTitle";
 
 const Home = () => {
+ 
+  useTitle("Home");
+
   return (
     <div className='home-grid-container'>
       <header className='header-banner'>

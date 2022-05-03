@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navigation } from "./components";
 import { Cart } from "./pages/Cart/Cart";
+import { ErrorPage } from "./pages/Error/Error";
 import { Home } from "./pages/Home/Home";
 import { Products } from "./pages/Product/Product";
 import { WishList } from "./pages/WishList/WishList";
@@ -15,6 +16,7 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/wishlist' element={<WishList />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </div>
   );

@@ -1,9 +1,7 @@
-:root{
-
-   --theme-color: #ff385c;
-   --theme-text-color: #ffffff; 
-   --pure-dark: #000000;
-   --header-link: #80828d;
-   --footer-bg-color: #f7f7f7;
-
+:root {
+  --theme-color: #ff385c;
+  --theme-text-color: #ffffff;
+  --pure-dark: #000000;
+  --header-link: #80828d;
+  --footer-bg-color: #f7f7f7;
 }

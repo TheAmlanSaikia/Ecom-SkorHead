@@ -9,6 +9,8 @@ import {
 } from "../../components";
 
 import { useFilter } from "../../context/Filtercontext";
+import { useTitle } from "../../hooks/useTitle";
+
 import {
   getSortedProducts,
   getCategoryFilteredProducts,
@@ -17,7 +19,10 @@ import {
 import "./Product.css";
 
 const Products = () => {
+
   const [productList, setProductList] = useState(null);
+  useTitle("Products");
+
 
   useEffect(() => {
     (async () => {
@@ -32,7 +37,8 @@ const Products = () => {
       }
     })();
   }, []);
-
+  
+  
   const { state, dispatch } = useFilter();
   const sortedProducts = getSortedProducts(productList, state.sortBy);
   const categoryfilteredProducts = getCategoryFilteredProducts(

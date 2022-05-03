@@ -1,11 +1,15 @@
 
 import { Footer } from "../../components";
 import { useCart, useWishlist } from "../../context";
+import { useTitle } from "../../hooks/useTitle";
 import "./WishList.css";
 
 const WishList = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   const {  cartDispatch } = useCart();
+  
+  useTitle("Wishlist")
+
   return (
     <div className='wishlist-grid-container'>
       <header className='header wishlist-header-container mr-auto ml-auto mt-3'>
