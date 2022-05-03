@@ -1,5 +1,3 @@
-
-
 html,
 body {
   max-width: 100%;
@@ -21,7 +19,6 @@ hr {
     "aside main main main main main"
     "footer footer footer footer footer footer";
 }
-
 
 .header-container {
   grid-area: header;
@@ -63,13 +60,13 @@ hr {
   padding-bottom: var(--value-1);
 }
 
-.main-container-product{
+.main-container-product {
   grid-area: main;
   margin-top: 3.1rem;
   border-top: 1.8px solid var(--line-color);
   height: max-content;
 }
-.card-btn-fix{
+.card-btn-fix {
   margin-top: 5px;
 }
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCart, useWishlist } from "../../context";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
@@ -14,7 +14,6 @@ const Navigation = () => {
     <nav className='navbar sticky flex-row items-center flew-wrap'>
       <div className='hamburger'></div>
       <Logo />
-
       <div className='wrap'>
         <div className='search'>
           <input
@@ -36,7 +35,14 @@ const Navigation = () => {
           </a>
         </li>
         <li className='navlinks text-md mx-1'>
-          <Link to='/wishlist' className='link navbar-link avatar'>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#ff385d" : "#80828d",
+              };
+            }}
+            to='/wishlist'
+            className='link navbar-link avatar themetext'>
             <i className='fa-solid fa-lg fa-heart'></i>
             {NumOfWishlist > 0 && (
               <span className='badge-status absolute  badge-status-number ml-1'>
@@ -44,10 +50,17 @@ const Navigation = () => {
               </span>
             )}
             <p className='text-sm'>Wishlist</p>
-          </Link>
+          </NavLink>
         </li>
         <li className='navlinks text-md mr-3'>
-          <Link to='/cart' className='link navbar-link avatar'>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? "#ff385d" : "#80828d",
+              };
+            }}
+            to='/cart'
+            className='link navbar-link avatar themetext'>
             <i className='fa-solid fa-lg fa-bag-shopping'></i>
             {NumOfProducts > 0 && (
               <span className='badge-status absolute  badge-status-number ml-1'>
@@ -55,7 +68,7 @@ const Navigation = () => {
               </span>
             )}
             <p className='text-sm'>Bag</p>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
