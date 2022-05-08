@@ -1,0 +1,22 @@
+
+.login-grid-container {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "navbar navbar navbar navbar navbar navbar"
+      "header header header header header header"
+      "main main main main main main"
+      "main main main main main main"
+      "main main main main main main"
+      "footer footer footer footer footer footer";
+  }
+
+  
+  .main-login-container {
+    grid-area: main;
+  }
+
+  .btn-test{
+      color: var(--theme-color);
+      border-color: var(--theme-color);
+  }

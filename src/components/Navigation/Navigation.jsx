@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { useCart, useWishlist } from "../../context";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
@@ -29,10 +29,14 @@ const Navigation = () => {
 
       <ul className='navlinks-secondary flex-row ml-auto list-style-none'>
         <li className='navlinks text-md'>
-          <a href='/Login/login.html' className='link navbar-link'>
+          <NavLink  style={({ isActive }) => {
+              return {
+                color: isActive ? "#ff385d" : "#80828d",
+              };
+            }} to='/login' className='link navbar-link'>
             <i className='fa-solid fal-lg fa-user'></i>
-            <p className='text-sm'>Profile</p>
-          </a>
+            <p className='text-sm'>Login</p>
+          </NavLink>
         </li>
         <li className='navlinks text-md mx-1'>
           <NavLink
