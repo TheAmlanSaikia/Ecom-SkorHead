@@ -18,6 +18,8 @@ import {
 } from "../../utility";
 import "./Product.css";
 
+const PRODUCTS = process.env.REACT_APP_SKORHEAD_PRODUCTS;
+
 const Products = () => {
 
   const [productList, setProductList] = useState(null);
@@ -27,7 +29,7 @@ const Products = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/products");
+        const response = await axios.get(PRODUCTS);
         const {
           data: { products },
         } = response;
@@ -111,6 +113,7 @@ const Products = () => {
             )}
         </div>
       </main>
+      {console.log(process.env)};
       <Footer />
     </div>
   );

@@ -1,69 +1,82 @@
+import { useState } from "react";
 import "./SignUp.css";
+
 const SignUp = () => {
+
+
+ const [ formdata, setFormData ] = useState({
+     username:"",
+     email:"",
+     password:"",
+     confirmpassword:""
+ })
+
   return (
-    <div class='grid-login-container'>
-      <main class='main main-login-container'>
-        <div class='display-container-form'>
-          <main class='form-container'>
-            <form id='form' class='form'>
-              <h3 class='title-text'>Register Here</h3>
-              <section class='form-control form-control-username'>
-                <label for='username' class='form-label username-label'>
+    <div className='grid-login-container'>
+      <main className='main main-login-container'>
+        <div className='display-container-form'>
+          <main className='form-container signup-form'>
+            <form id='form' className='form'>
+              <h3 className='title-text'> Register Here </h3>
+              <section className='form-control form-control-username'>
+                <label for='username' className='form-label username-label'>
                   Username
                 </label>
                 <input
                   type='text'
-                  class='form-input username-input'
+                  className='form-input username-input'
                   id='username'
+                  value={formdata.username}
                   placeholder='Enter Username'
+                  onChange={(e)=> setFormData({...formdata,username: e.target.value})}
                 />
-                <small class='error-msg'>Error Message</small>
+                <small className='error-msg'> Error Message </small>
               </section>
-
-              <section class='form-control form-control-email'>
-                <label for='email' class='form-label email-label'>
+              <section className='form-control form-control-email'>
+                <label for='email' className='form-label email-label'>
                   Email
                 </label>
                 <input
                   type='text'
-                  class='form-input email-input'
+                  className='form-input email-input'
                   id='email'
+                  value={formdata.email}
                   placeholder='Enter email'
+                  onChange={(e)=> setFormData({...formdata,email: e.target.value})}
                 />
-                <small class='error-msg'>Error Message</small>
+                <small className='error-msg'> Error Message </small>
               </section>
-
-              <section class='form-control form-control-password1'>
-                <label for='password1' class='form-label pasword1-label'>
+              <section className='form-control form-control-password1'>
+                <label for='password1' className='form-label pasword1-label'>
                   Password
                 </label>
                 <input
                   type='password'
-                  class='form-input password1-input'
+                  className='form-input password1-input'
                   id='password1'
                   placeholder='Enter Password'
                 />
-                <small class='error-msg'>Error Message</small>
+                <small className='error-msg'> Error Message </small>
               </section>
-
-              <section class='form-control form-control-password2'>
-                <label for='password2' class='form-label password2-label'>
+              <section className='form-control form-control-password2'>
+                <label for='password2' className='form-label password2-label'>
                   Confirm Password
                 </label>
                 <input
                   type='password'
-                  class='form-input password2-input'
+                  className='form-input password2-input'
                   id='password2'
                   placeholder='Confirm Password'
                 />
-                <small class='error-msg'>Error Message</small>
+                <small className='error-msg'> Error Message </small>
               </section>
-              <button class='btn-submit' type='submit'>
+              <button className='btn-submit' type='submit'>
                 Submit
               </button>
             </form>
           </main>
         </div>
+        {console.log(formdata)}
       </main>
     </div>
   );
