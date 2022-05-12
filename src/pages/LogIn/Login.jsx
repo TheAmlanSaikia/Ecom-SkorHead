@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useRef,useEffect } from "react";
 import "./Login.css";
 
 const Login = () => {
+    const inputRef = useRef(null);
+
+    useEffect(()=>{
+        inputRef.current.focus()
+    },[])
   return (
     <div className='login-grid-container'>
       <main className='main main-login-container'>
@@ -15,6 +21,7 @@ const Login = () => {
                   className='form-input email-input'
                   id='email'
                   placeholder='Enter email'
+                  ref={inputRef}
                 />
                 <small className='error-msg'>Error Message</small>
               </section>

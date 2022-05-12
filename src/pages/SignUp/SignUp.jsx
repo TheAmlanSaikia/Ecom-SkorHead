@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./SignUp.css";
 
 const SignUp = () => {
+  const inputRef = useRef(null);
   const SIGN_UP = process.env.REACT_APP_SKORHEAD_SIGNUP;
   const initialForm = {
     username: "",
@@ -25,11 +26,7 @@ const SignUp = () => {
     setIsSubmit(true);
   };
 
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      signupSuccess();
-    }
-  }, [formErrors]);
+  
 
   const validate = (values) => {
     const regexvalue =
@@ -59,14 +56,27 @@ const SignUp = () => {
   const signupSuccess = async () => {
     try {
       const {
-        data: { encodedToken,createdUser },
+        data: { encodedToken, createdUser },
       } = await axios.post(SIGN_UP, formdata);
       localStorage.setItem("token", encodedToken);
-      console.log(encodedToken, createdUser)
+      console.log(encodedToken, "Response block");
+      console.log(encodedToken, createdUser);
     } catch (error) {
-        console.log(error);
-      }
+      error.response.status === 422
+        ? setFormErrors({ ...formErrors, email: "The email is already taken" })
+        : setFormErrors({ ...formErrors, email: "Oops,something went wrong!" });
+    }
   };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      signupSuccess();
+    }
+  }, [formErrors]);
+
+  useEffect(()=>{
+      inputRef.current.focus()
+  },[])
 
   return (
     <div className='grid-login-container'>
@@ -86,6 +96,7 @@ const SignUp = () => {
                   value={formdata.username}
                   placeholder='Enter Username'
                   onChange={handleChange}
+                  ref={inputRef}
                 />
                 <small className='class-error'>{formErrors.username}</small>
               </section>
