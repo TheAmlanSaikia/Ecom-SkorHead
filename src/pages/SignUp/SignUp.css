@@ -2,3 +2,10 @@
 .signup-form{
     min-width:  23vw;
 }
+
+.class-error{
+    color: var(--danger-text-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
