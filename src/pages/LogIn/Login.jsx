@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import "./Login.css";
 import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
   const inputRef = useRef(null);
@@ -13,17 +14,37 @@ const Login = () => {
   const [loginData, setLoginData] = useState(initialLogin);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const {setUserLogin} = useAuth();
+  const  navigate = useNavigate();
+  const  location = useLocation() ;
+  const from = location.state?.from?.pathname || '/'
 
+  /**
+   * {Input Change function}
+   * @param {event}
+   * @returns{object}
+   */
   const handleChange = (event) => {
     const { id, value } = event.target;
     setLoginData({ ...loginData, [id]: value });
   };
 
+  /**
+   *{Method for Submit Button click}
+   * @param {event}
+   * @returns{setStates}
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(loginData));
     setIsSubmit(true);
   };
+
+  /**
+   * {Method for checking validation}
+   * @param {entered values} 
+   * @returns {Error Object}
+   */
 
   const validate = (values) => {
     const regexvalue =
@@ -45,11 +66,17 @@ const Login = () => {
   const logInSuccess = async () => {
     try {
       const {
-        data: { user, encodedToken },
+         data: { foundUser, encodedToken }, status
       } = await axios.post(LOG_IN, loginData);
+      if( status === 200){
+      setUserLogin(true)
       localStorage.setItem("token", encodedToken);
-      //   console.log(encodedToken, "Response block");
-      console.log(user, encodedToken);
+      navigate(from, {replace: true});
+      }
+      else{
+        console.log("Something  went wrong")
+      }
+
     } catch (error) {
       console.log(error);
     }

@@ -1,5 +1,6 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useCart, useWishlist } from "../../context";
+import { useAuth } from "../../context/AuthContext";
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
 
@@ -9,6 +10,7 @@ const Navigation = () => {
 
   const NumOfProducts = cartState.products.length;
   const NumOfWishlist = wishlistState.items.length;
+  const { userLogin } = useAuth();
 
   return (
     <nav className='navbar sticky flex-row items-center flew-wrap'>
@@ -29,14 +31,22 @@ const Navigation = () => {
 
       <ul className='navlinks-secondary flex-row ml-auto list-style-none'>
         <li className='navlinks text-md'>
-          <NavLink  style={({ isActive }) => {
-              return {
-                color: isActive ? "#ff385d" : "#80828d",
-              };
-            }} to='/login' className='link navbar-link'>
-            <i className='fa-solid fal-lg fa-user'></i>
-            <p className='text-sm'>Login</p>
-          </NavLink>
+          {!userLogin ? (
+            <NavLink to='/login' className='link navbar-link'>
+              <i className='fa-solid fal-lg fa-user'></i>
+              <p className='text-sm'>Login</p>
+            </NavLink>
+          ) : (
+            <div className='link navbar-link dropdown'>
+              <i className='fa-solid fal-lg fa-user'></i>
+              <p className='text-sm'>Amlan</p>
+              <div className='dropdown-content'>
+              <p className="dropdown-tab pointer">Products</p>
+                <p className="dropdown-tab pointer">Logout</p>
+                <p className="dropdown-tab pointer">User</p>
+              </div>
+            </div>
+          )}
         </li>
         <li className='navlinks text-md mx-1'>
           <NavLink

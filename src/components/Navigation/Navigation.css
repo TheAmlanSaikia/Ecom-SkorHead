@@ -75,6 +75,34 @@
   color: var(--theme-color);
 }
 
+.dropdown{
+ position: relative;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: var(--pure-white);
+  width: 7rem;
+  z-index: 1;
+  top: 100%;
+  left: -81%;
+  right: 100%;
+  box-shadow: 0 1px 10px rgb(0 0 0 / 8%);
+}
+
+.dropdown-tab{
+  padding: 1rem var(--value-1);
+}
+.dropdown-tab:hover{
+  background-color: var(--off-white-picture-background)
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+
 @media only screen and (max-width: 1400px) {
   .wrap {
     left: 50%;
