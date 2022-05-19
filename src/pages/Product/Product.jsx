@@ -113,7 +113,6 @@ const Products = () => {
             )}
         </div>
       </main>
-      {console.log(process.env)};
       <Footer />
     </div>
   );

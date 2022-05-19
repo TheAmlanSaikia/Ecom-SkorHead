@@ -59,8 +59,6 @@ const SignUp = () => {
         data: { encodedToken, createdUser },
       } = await axios.post(SIGN_UP, formdata);
       localStorage.setItem("token", encodedToken);
-      console.log(encodedToken, "Response block");
-      console.log(encodedToken, createdUser);
     } catch (error) {
       error.response.status === 422
         ? setFormErrors({ ...formErrors, email: "The email is already taken" })

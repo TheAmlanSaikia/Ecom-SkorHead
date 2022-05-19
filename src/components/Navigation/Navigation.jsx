@@ -91,7 +91,6 @@ const Navigation = () => {
               </span>
             )}
             <p className='text-sm'>Bag</p>
-            {console.log(user)}
           </NavLink>
         </li>
       </ul>
