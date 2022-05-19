@@ -7,5 +7,6 @@ import { WishListProvider } from "./WishlistContext";
 import { CategoryProvider } from "./CategoryContext";
 import { useCategory } from "./CategoryContext";
 import { AuthProvider } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 
-export { AuthProvider, FilterProvider, useFilter,CartProvider,useCart,useWishlist, WishListProvider,CategoryProvider,useCategory };
+export { useAuth,AuthProvider, FilterProvider, useFilter,CartProvider,useCart,useWishlist, WishListProvider,CategoryProvider,useCategory };

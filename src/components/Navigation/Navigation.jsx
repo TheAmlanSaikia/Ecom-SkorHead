@@ -1,16 +1,23 @@
-import { NavLink } from "react-router-dom";
-import { useCart, useWishlist } from "../../context";
-import { useAuth } from "../../context/AuthContext";
+import {  NavLink, useNavigate } from "react-router-dom";
+import { useAuth, useCart, useWishlist } from "../../context";
+
 import { Logo } from "../Logo/Logo";
 import "./Navigation.css";
 
 const Navigation = () => {
   const { cartState } = useCart();
   const { wishlistState } = useWishlist();
-
   const NumOfProducts = cartState.products.length;
   const NumOfWishlist = wishlistState.items.length;
-  const { userLogin } = useAuth();
+  const { user, setUser, userLogin, setUserLogin } = useAuth();
+  const Navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    setUserLogin(false);
+    setUser("");
+    Navigate("/");
+  };
 
   return (
     <nav className='navbar sticky flex-row items-center flew-wrap'>
@@ -39,11 +46,13 @@ const Navigation = () => {
           ) : (
             <div className='link navbar-link dropdown'>
               <i className='fa-solid fal-lg fa-user'></i>
-              <p className='text-sm'>Amlan</p>
+              <p className='text-sm'>{user.firstName}</p>
               <div className='dropdown-content'>
-              <p className="dropdown-tab pointer">Products</p>
-                <p className="dropdown-tab pointer">Logout</p>
-                <p className="dropdown-tab pointer">User</p>
+                <p className='dropdown-tab pointer'>Products</p>
+                <p className='dropdown-tab pointer'>User</p>
+                <div className='dropdown-tab pointer' onClick={logoutHandler}>
+                  Logout
+                </div>
               </div>
             </div>
           )}
@@ -82,6 +91,7 @@ const Navigation = () => {
               </span>
             )}
             <p className='text-sm'>Bag</p>
+            {console.log(user)}
           </NavLink>
         </li>
       </ul>
