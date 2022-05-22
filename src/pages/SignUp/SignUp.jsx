@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context";
 import "./SignUp.css";
 
 const SignUp = () => {
   const inputRef = useRef(null);
   const SIGN_UP = process.env.REACT_APP_SKORHEAD_SIGNUP;
+  const { user, setUser, setUserLogin } = useAuth();
   const initialForm = {
     username: "",
     email: "",
@@ -14,6 +17,9 @@ const SignUp = () => {
   const [formdata, setFormData] = useState(initialForm);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -25,8 +31,6 @@ const SignUp = () => {
     setFormErrors(validate(formdata));
     setIsSubmit(true);
   };
-
-  
 
   const validate = (values) => {
     const regexvalue =
@@ -57,8 +61,16 @@ const SignUp = () => {
     try {
       const {
         data: { encodedToken, createdUser },
+        status,
       } = await axios.post(SIGN_UP, formdata);
-      localStorage.setItem("token", encodedToken);
+      if (status === 200) {
+        setUserLogin(true);
+        setUser(createdUser);
+        localStorage.setItem("token", encodedToken);
+        navigate(from, { replace: true });
+      } else {
+        console.log("Something  went wrong");
+      }
     } catch (error) {
       error.response.status === 422
         ? setFormErrors({ ...formErrors, email: "The email is already taken" })
@@ -72,9 +84,9 @@ const SignUp = () => {
     }
   }, [formErrors]);
 
-  useEffect(()=>{
-      inputRef.current.focus()
-  },[])
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <div className='grid-login-container'>
