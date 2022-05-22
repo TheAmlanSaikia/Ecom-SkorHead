@@ -7,7 +7,7 @@ import "./SignUp.css";
 const SignUp = () => {
   const inputRef = useRef(null);
   const SIGN_UP = process.env.REACT_APP_SKORHEAD_SIGNUP;
-  const { user, setUser, setUserLogin } = useAuth();
+  const { setUser, setUserLogin } = useAuth();
   const initialForm = {
     username: "",
     email: "",
@@ -34,7 +34,7 @@ const SignUp = () => {
 
   const validate = (values) => {
     const regexvalue =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const errors = {};
     if (!values.username) {
       errors.username = "Username is required";
