@@ -75,11 +75,11 @@
   color: var(--theme-color);
 }
 
-.dropdown{
- position: relative;
+.dropdown {
+  position: relative;
 }
 
-.dropdown-content{
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: var(--pure-white);
@@ -91,17 +91,16 @@
   box-shadow: 0 1px 10px rgb(0 0 0 / 8%);
 }
 
-.dropdown-tab{
+.dropdown-tab {
   padding: 1rem var(--value-1);
 }
-.dropdown-tab:hover{
-  background-color: var(--off-white-picture-background)
+.dropdown-tab:hover {
+  background-color: var(--off-white-picture-background);
 }
 
-.dropdown:hover .dropdown-content{
+.dropdown:hover .dropdown-content {
   display: block;
 }
-
 
 @media only screen and (max-width: 1400px) {
   .wrap {

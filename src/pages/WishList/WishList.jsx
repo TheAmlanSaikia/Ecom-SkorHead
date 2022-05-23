@@ -1,4 +1,3 @@
-
 import { Footer } from "../../components";
 import { useCart, useWishlist } from "../../context";
 import { useTitle } from "../../hooks/useTitle";
@@ -6,9 +5,9 @@ import "./WishList.css";
 
 const WishList = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
-  const {  cartDispatch } = useCart();
-  
-  useTitle("Wishlist")
+  const { cartDispatch } = useCart();
+
+  useTitle("Wishlist");
 
   return (
     <div className='wishlist-grid-container'>
