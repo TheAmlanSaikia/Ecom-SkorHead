@@ -82,8 +82,9 @@ const SignUp = () => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       signupSuccess();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors]);
-
+  
   useEffect(() => {
     inputRef.current.focus();
   }, []);
