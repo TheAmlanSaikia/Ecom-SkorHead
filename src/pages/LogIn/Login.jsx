@@ -4,7 +4,6 @@ import "./Login.css";
 import axios from "axios";
 import { useAuth } from "../../context";
 
-
 const Login = () => {
   const inputRef = useRef(null);
   const LOG_IN = process.env.REACT_APP_SKORHEAD_LOGIN;
@@ -15,7 +14,7 @@ const Login = () => {
   const [loginData, setLoginData] = useState(initialLogin);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const {  setUser, setUserLogin } = useAuth();
+  const { setUser, setUserLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -30,6 +29,7 @@ const Login = () => {
     setLoginData({ ...loginData, [id]: value });
   };
 
+
   /**
    *{Method for Submit Button click}
    * @param {event}
@@ -41,12 +41,14 @@ const Login = () => {
     setIsSubmit(true);
   };
 
+
   /**
    * {Method for checking validation}
    * @param {entered values}
    * @returns {Error Object}
    */
 
+  
   const validate = (values) => {
     const regexvalue =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -87,6 +89,7 @@ const Login = () => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       logInSuccess();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors]);
 
   useEffect(() => {
