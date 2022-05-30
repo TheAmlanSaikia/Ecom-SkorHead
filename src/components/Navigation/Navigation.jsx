@@ -46,7 +46,7 @@ const Navigation = () => {
           ) : (
             <div className='link navbar-link dropdown'>
               <i className='fa-solid fal-lg fa-user'></i>
-              <p className='text-sm'>{user.firstName}</p>
+              <p className='text-sm'>{user}</p>
               <div className='dropdown-content'>
                 <p className='dropdown-tab pointer'>Products</p>
                 <p className='dropdown-tab pointer'>User</p>
