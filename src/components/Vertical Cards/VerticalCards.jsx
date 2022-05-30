@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../context";
+import { useAuth, useCart } from "../../context";
 import { useWishlist } from "../../context/WishlistContext";
+import { addToCart } from "../../services";
 import "./ProductVerticalCards.css";
 
 const VerticalCards = (props) => {
   const { cartState, cartDispatch } = useCart();
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const { userLogin } = useAuth();
+  const cartBtnHandler=()=>{
+   if(userLogin){
+    addToCart(props,cartDispatch) 
+    }
+    else{
+      console.log("Not loggedin")
+    }
+  }
   return (
     <div>
       <main key={props.id} className='vertical-cardbody card-shadow'>
@@ -72,8 +82,8 @@ const VerticalCards = (props) => {
               <button
                 className='btn-card btn-cart card-btn-fix'
                 onClick={() =>
-                  cartDispatch({ type: "ADD_TO_CART", payload: props })
-                }>
+                   cartBtnHandler()
+                  }>
                 Add to Cart
               </button>
             </>
