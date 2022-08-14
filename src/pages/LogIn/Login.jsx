@@ -29,7 +29,6 @@ const Login = () => {
     setLoginData({ ...loginData, [id]: value });
   };
 
-
   /**
    *{Method for Submit Button click}
    * @param {event}
@@ -41,14 +40,12 @@ const Login = () => {
     setIsSubmit(true);
   };
 
-
   /**
    * {Method for checking validation}
    * @param {entered values}
    * @returns {Error Object}
    */
 
-  
   const validate = (values) => {
     const regexvalue =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -74,7 +71,7 @@ const Login = () => {
       } = await axios.post(LOG_IN, loginData);
       if (status === 200) {
         setUserLogin(true);
-        setUser(foundUser);
+        setUser(foundUser.firstName);
         localStorage.setItem("token", encodedToken);
         navigate(from, { replace: true });
       } else {
@@ -89,7 +86,7 @@ const Login = () => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       logInSuccess();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors]);
 
   useEffect(() => {

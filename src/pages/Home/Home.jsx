@@ -4,10 +4,13 @@ import { CategoriesCards } from "../../components/Category Cards/Category";
 import { Footer } from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
+import { useFilter } from "../../context";
+
 
 const Home = () => {
  
   useTitle("Home");
+  const { dispatch } = useFilter();
 
   return (
     <div className='home-grid-container'>
@@ -24,7 +27,8 @@ const Home = () => {
         </p>
         <Link
           to='/products'
-          className='btn btn-primary-round btn-primary-outline banner-btn absolute'>
+          className='btn btn-primary-round btn-primary-outline banner-btn absolute'
+           onClick={() => dispatch({ type: "ALL_CLEAR", payload: "" })}>
           <h5>Take Me!</h5>
         </Link>
       </header>

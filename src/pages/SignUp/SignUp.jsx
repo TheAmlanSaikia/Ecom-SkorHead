@@ -7,7 +7,7 @@ import "./SignUp.css";
 const SignUp = () => {
   const inputRef = useRef(null);
   const SIGN_UP = process.env.REACT_APP_SKORHEAD_SIGNUP;
-  const { setUser, setUserLogin } = useAuth();
+  const { user,setUser, setUserLogin } = useAuth();
   const initialForm = {
     username: "",
     email: "",
@@ -63,14 +63,15 @@ const SignUp = () => {
         data: { encodedToken, createdUser },
         status,
       } = await axios.post(SIGN_UP, formdata);
-      if (status === 200) {
+      if (status === 201) {
         setUserLogin(true);
-        setUser(createdUser);
+        console.log(createdUser.username)
+        setUser(createdUser.username);
         localStorage.setItem("token", encodedToken);
         navigate(from, { replace: true });
       } else {
         console.log("Something  went wrong");
-      }
+       }
     } catch (error) {
       error.response.status === 422
         ? setFormErrors({ ...formErrors, email: "The email is already taken" })
@@ -84,7 +85,7 @@ const SignUp = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors]);
-  
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
