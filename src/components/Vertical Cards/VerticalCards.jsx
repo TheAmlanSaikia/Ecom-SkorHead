@@ -1,21 +1,64 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../context";
 import { useWishlist } from "../../context/WishlistContext";
-import { addToCart } from "../../services";
+import { addToCart, addToWishList, removeFromWishList } from "../../services";
 import "./ProductVerticalCards.css";
 
 const VerticalCards = (props) => {
   const { cartState, cartDispatch } = useCart();
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const Navigate = useNavigate();
   const { userLogin } = useAuth();
-  const cartBtnHandler=()=>{
-   if(userLogin){
-    addToCart(props,cartDispatch) 
+
+  /**
+   * {Add Products to Cart}
+   * @param()
+   * @returns {addToCart or Redirection To login Page}
+   */
+
+  const cartBtnHandler = () => {
+    if (userLogin) {
+      addToCart(props, cartDispatch);
+    } else {
+      Navigate("/login", { replace: true });
     }
-    else{
-      console.log("Not loggedin")
+  };
+
+  /**
+   * {Redirection to cart page}
+   * @param()
+   * @returns{Navigate to Cart or Login}
+   */
+
+  const goCartBtnHandler = () => {
+    if (userLogin) {
+      <Navigate to='/cart' replace={false} />;
+    } else {
+      Navigate("/login", { replace: true });
     }
+
+  };
+
+   /**
+    * @returns{Triggers addToWishist function}
+    */
+  const addsToWishlist = () => {
+    if(userLogin){
+    addToWishList(props, wishlistDispatch);
+    }else{
+      Navigate("/login", { replace: true})
+    }
+  };
+  
+  /**
+   * @returns{Triggers removetoWishlist function} 
+   */
+  const removesFromWishlist= () =>{
+    removeFromWishList(props, wishlistDispatch)
   }
+
+
+
   return (
     <div>
       <main key={props.id} className='vertical-cardbody card-shadow'>
@@ -39,22 +82,22 @@ const VerticalCards = (props) => {
               {wishlistState.items.some((item) => item.id === props.id) ? (
                 <button
                   className='wishlist-btn wishlist-btn-hover themetext'
-                  onClick={() =>
-                    wishlistDispatch({
-                      type: "REMOVE_FROM_WISHLIST",
-                      payload: props,
-                    })
+                  onClick={() => removesFromWishlist()
+                    // wishlistDispatch({
+                    //   type: "REMOVE_FROM_WISHLIST",
+                    //   payload: props,
+                    // })
                   }>
                   <i className='fa-solid fa-heart fa-lg wishlist-icon'></i>
                 </button>
               ) : (
                 <button
                   className='wishlist-btn wishlist-btn-hover'
-                  onClick={() =>
-                    wishlistDispatch({
-                      type: "ADD_TO_WISHLIST",
-                      payload: props,
-                    })
+                  onClick={() => addsToWishlist()
+                    // wishlistDispatch({
+                    //   type: "ADD_TO_WISHLIST",
+                    //   payload: props,
+                    // })
                   }>
                   <i className='fa-solid fa-heart fa-lg wishlist-icon'></i>
                 </button>
@@ -72,7 +115,9 @@ const VerticalCards = (props) => {
           {cartState.products.some((item) => item.id === props.id) ? (
             <>
               <Link to='/cart'>
-                <button className='btn-card btn-cart card-btn-fix'>
+                <button
+                  className='btn-card btn-cart card-btn-fix'
+                  onClick={() => goCartBtnHandler()}>
                   Go to Cart
                 </button>
               </Link>
@@ -81,9 +126,7 @@ const VerticalCards = (props) => {
             <>
               <button
                 className='btn-card btn-cart card-btn-fix'
-                onClick={() =>
-                   cartBtnHandler()
-                  }>
+                onClick={() => cartBtnHandler()}>
                 Add to Cart
               </button>
             </>

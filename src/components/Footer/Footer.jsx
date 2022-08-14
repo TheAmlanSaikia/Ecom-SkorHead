@@ -5,7 +5,7 @@ const Footer=()=>{
     return (
         <>
            <footer className='footer footer-container'>
-           <h3 className="mt-2">Coming Soon</h3>
+           <h4 className="mt-3">Made by Amlan</h4>
            </footer>  
         </>
     )

@@ -42,6 +42,13 @@ const ReducerFunction = (state, { type, payload }) => {
       }
     }
 
+    case "ADD_CATEGORIES_FROM_HOME":{
+      return{
+        ...state,
+        categories: {[payload]: true }
+      }
+    }
+
     default:
         throw new Error("Action type not found.");
   }

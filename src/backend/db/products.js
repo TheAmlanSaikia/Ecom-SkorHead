@@ -114,4 +114,99 @@
               inStock: false,
               description: "UNISEX HIGH TOP SHOE",
             },
+            {
+              _id: uuid(),
+              title: "Ultraboost 22 W X",
+              brand: "Adidas",
+              price: "18999",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Ultraboost%20X11.jpg",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "Running",
+              inStock: true,
+              description: "White & Red Woven Design",
+
+            },
+            {
+              _id: uuid(),
+              title: "Air Jordan 5 Retro",
+              brand: "Nike",
+              price: "13796",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Air%20Jordon%20silver%20Retro.webp",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "BasketBall",
+              inStock: true,
+              description: "Men Black Air Jordon 5",
+
+            },
+            {
+              _id: uuid(),
+              title: "Tan Brown Solid",
+              brand: "Converse",
+              price: "3379",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Brown%20Shoes.webp",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "ChuckTaylor",
+              inStock: true,
+              description: "Unisex Tan Brown Solid Sneakers",
+
+            },
+            {
+              _id: uuid(),
+              title: "Solar Boost 3",
+              brand: "Adidas",
+              price: "15999",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Solar%20Boost%203.jpg",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "Running",
+              inStock: true,
+              description: "Men Grey & Red Woven Design",
+
+            },
+            {
+              _id: uuid(),
+              title: "Karlie Kloss X9000",
+              brand: "Adidas",
+              price: "9099",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/Karlie%20Kloss%20X9000.jpg",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "Running",
+              inStock: true,
+              description: "Women Pink & White Colourblocked",
+
+            },
+
+            {
+              _id: uuid(),
+              title: "Printed Slip-On",
+              brand: "Vans",
+              price: "4599",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/VAns%20NAtional.webp",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "SlipOn",
+              inStock: true,
+              description: "Unisex Navy Blue & White Printed ",
+
+            },
+            {
+              _id: uuid(),
+              title: "Colourblocked",
+              brand: "Vans",
+              price: "3149",
+              image:
+                "https://raw.githubusercontent.com/TheAmlanSaikia/ImageHost/main/VAns%20Violet.webp",
+              discount: Math.floor(Math.random() * 100),
+              categoryName: "Authentic",
+              inStock: true,
+              description: "Blue Colourblocked",
+
+            },
+
+
           ];
+      

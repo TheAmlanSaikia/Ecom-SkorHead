@@ -14,7 +14,7 @@ const CategoriesCards = () => {
             style={{ backgroundColor: item.color }}
             className='category-card card-shadow mr-1'
             onClick={() =>
-              dispatch({ type: "ADD_CATEGORIES", payload: item.categoryName })
+              dispatch({ type:"ADD_CATEGORIES_FROM_HOME", payload: item.categoryName })
             }>
             <Link to='/products'>
               <section className='category-image-container'>

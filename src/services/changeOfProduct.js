@@ -1,7 +1,7 @@
 import axios from "axios";
 const CART = process.env.REACT_APP_SKORHEAD_CART;
 
-export const addToCart = async (product, cartDispatch) => {
+export const changeOfProducts = async (product, cartDispatch, action) => {
   try {
     const config = {
       headers: {
@@ -11,15 +11,17 @@ export const addToCart = async (product, cartDispatch) => {
     const response = await axios.post(
       CART,
       {
-        product,
+        action: {
+          type: action,
+        },
       },
       config
     );
     console.log(response);
-    cartDispatch({
-      type: "ADD_TO_CART",
-      payload: product,
-    });
+
+    action === "increment"
+      ? cartDispatch({ type: "INCREASE_QUANTITY", payload: product })
+      : cartDispatch({ type: "DECREASE_QUANTITY", payload: product });
   } catch (error) {
     console.log(error);
   }

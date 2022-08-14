@@ -1,7 +1,7 @@
 import axios from "axios";
-const CART = process.env.REACT_APP_SKORHEAD_CART;
+const WISHLIST = process.env.REACT_APP_SKORHEAD_WISHLIST;
 
-export const addToCart = async (product, cartDispatch) => {
+export const addToWishList = async (product, wishlistDispatch) => {
   try {
     const config = {
       headers: {
@@ -9,15 +9,15 @@ export const addToCart = async (product, cartDispatch) => {
       },
     };
     const response = await axios.post(
-      CART,
+      WISHLIST,
       {
         product,
       },
       config
     );
     console.log(response);
-    cartDispatch({
-      type: "ADD_TO_CART",
+    wishlistDispatch({
+      type: "ADD_TO_WISHLIST",
       payload: product,
     });
   } catch (error) {

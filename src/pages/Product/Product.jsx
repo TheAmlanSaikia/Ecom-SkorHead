@@ -25,7 +25,6 @@ const Products = () => {
   const [productList, setProductList] = useState(null);
   useTitle("Products");
 
-
   useEffect(() => {
     (async () => {
       try {
