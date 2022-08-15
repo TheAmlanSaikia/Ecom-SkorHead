@@ -38,14 +38,17 @@
 - From the navbar, User can navigate to wishlist where all the products to buy are present.
 - User can remove the product from the wishlist.
 - User can add the product to the Cart.
-
+#### Authentciation
+- Log in to view Cart and Wishlist
+- Protected Routes
+- SignUp and Login Page
+- Login with Test Credentials
 ### Features to be implemented soon
-- Authentication
 - Single Product Page
 - Address management
 - Profile Page
 - Loaders, Alerts
-- 404 Page
+
 
 ---
 ## How to run your app locally
