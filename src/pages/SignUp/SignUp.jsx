@@ -7,7 +7,7 @@ import "./SignUp.css";
 const SignUp = () => {
   const inputRef = useRef(null);
   const SIGN_UP = process.env.REACT_APP_SKORHEAD_SIGNUP;
-  const { user,setUser, setUserLogin } = useAuth();
+  const { setUser, setUserLogin } = useAuth();
   const initialForm = {
     username: "",
     email: "",
