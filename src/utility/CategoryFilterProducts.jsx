@@ -9,8 +9,6 @@ return products && products.filter((product)=> category[product.categoryName]);
   
 
 
-
-
 }
 
 export{ getCategoryFilteredProducts };

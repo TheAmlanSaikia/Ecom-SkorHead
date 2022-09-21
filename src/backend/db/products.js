@@ -116,7 +116,7 @@
             },
             {
               _id: uuid(),
-              title: "Ultraboost 22 W X",
+              title: "Ultraboost 22W",
               brand: "Adidas",
               price: "18999",
               image:
@@ -142,7 +142,7 @@
             },
             {
               _id: uuid(),
-              title: "Tan Brown Solid",
+              title: "Tan Brown",
               brand: "Converse",
               price: "3379",
               image:
@@ -150,7 +150,7 @@
               discount: Math.floor(Math.random() * 100),
               categoryName: "ChuckTaylor",
               inStock: true,
-              description: "Unisex Tan Brown Solid Sneakers",
+              description: "Unisex Tan Sneakers",
 
             },
             {
@@ -163,12 +163,12 @@
               discount: Math.floor(Math.random() * 100),
               categoryName: "Running",
               inStock: true,
-              description: "Men Grey & Red Woven Design",
+              description: "Men Woven Design",
 
             },
             {
               _id: uuid(),
-              title: "Karlie Kloss X9000",
+              title: "Karlie X9000",
               brand: "Adidas",
               price: "9099",
               image:
@@ -176,7 +176,7 @@
               discount: Math.floor(Math.random() * 100),
               categoryName: "Running",
               inStock: true,
-              description: "Women Pink & White Colourblocked",
+              description: "Women Colourblocked",
 
             },
 
@@ -190,7 +190,7 @@
               discount: Math.floor(Math.random() * 100),
               categoryName: "SlipOn",
               inStock: true,
-              description: "Unisex Navy Blue & White Printed ",
+              description: "Unisex Printed ",
 
             },
             {
