@@ -5,7 +5,6 @@ import { useTitle } from "../../hooks/useTitle";
 import "./Cart.css";
 import { useEffect, useState } from "react";
 import { fetchCartProducts } from "../../services";
-import { Toast } from "react-toastify";
 
 const Cart = () => {
   const { cartState } = useCart();
