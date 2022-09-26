@@ -9,7 +9,7 @@ const WishListReducer = (wishlistState, { type, payload }) => {
     case "REMOVE_FROM_WISHLIST":
       return {
         ...wishlistState,
-        items: wishlistState.items.filter((value) => value.id !== payload.id),
+        items: wishlistState.items.filter((value) => value._id !== payload._id),
       };
 
     default:

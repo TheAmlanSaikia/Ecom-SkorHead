@@ -9,7 +9,7 @@ export const deleteFromCart = async (product, cartDispatch) => {
       },
     };
     const response = await axios.delete(
-     `${CART}/:${product.id}`,
+     `${CART}/:${product._id}`,
       config
     );
     console.log(response,"Delete Item Array");

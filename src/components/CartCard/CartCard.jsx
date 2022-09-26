@@ -1,15 +1,16 @@
 import { useCart } from "../../context";
 import { changeOfProducts, deleteFromCart } from "../../services";
-
+import { toast, Toast } from "react-toastify";
 const CartCard = (props) => {
   const { cartDispatch } = useCart();
 
   const deleteItem = () => {
     deleteFromCart(props, cartDispatch);
+    toast.warn("Removed from cart")
   };
   return (
     <>
-      <li key={props.id} className='card-item mt-2'>
+      <li key={props._id} className='card-item mt-2'>
         <div className='cart-card flex-row items-center'>
           <img
             src={props.image}

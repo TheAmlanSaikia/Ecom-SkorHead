@@ -8,6 +8,6 @@ import { BrandFilter } from "./BrandFilter/BrandFilter";
 import { VerticalCards } from "./Vertical Cards/VerticalCards";
 import { CartCard } from "./CartCard/CartCard";
 import { CheckOut } from "./CheckoutCart/Checkout";
+import { Toast } from "./Toast/Toast";
 
-
-export { CartCard,CheckOut ,Navigation, Logo, CategoriesCards,Footer,PriceFilter, CategoryFilter,BrandFilter,VerticalCards };
+export { CartCard,CheckOut ,Navigation, Logo, CategoriesCards,Footer,PriceFilter, CategoryFilter,BrandFilter,VerticalCards, Toast };

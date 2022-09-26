@@ -9,7 +9,7 @@ const CartReducer = (cartState, { type, payload }) => {
       return {
         ...cartState,
         products: cartState.products.map((item) =>
-          item.id === payload.id
+          item._id === payload._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),
@@ -19,7 +19,7 @@ const CartReducer = (cartState, { type, payload }) => {
       return {
         ...cartState,
         products: cartState.products.map((item) => {
-           if( item.id === payload.id){
+           if( item._id === payload._id){
             if (item.quantity > 1) {
               return { ...item, quantity: item.quantity - 1 };
             } else {
@@ -35,7 +35,7 @@ const CartReducer = (cartState, { type, payload }) => {
     case "DELETE_FROM_CART": {
       return {
         ...cartState,
-        products: cartState.products.filter((item) => item.id !== payload.id),
+        products: cartState.products.filter((item) => item._id !== payload._id),
       };
     }
 

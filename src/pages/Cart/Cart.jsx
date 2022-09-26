@@ -5,6 +5,7 @@ import { useTitle } from "../../hooks/useTitle";
 import "./Cart.css";
 import { useEffect, useState } from "react";
 import { fetchCartProducts } from "../../services";
+import { Toast } from "react-toastify";
 
 const Cart = () => {
   const { cartState } = useCart();
@@ -59,7 +60,7 @@ const Cart = () => {
                 
                 {cartState.products.map(
                     ({
-                      id,
+                      _id,
                       title,
                       brand,
                       price,
@@ -71,7 +72,7 @@ const Cart = () => {
                       quantity,
                     }) => (
                       <CartCard
-                        id={id}
+                        _id={_id}
                         title={title}
                         brand={brand}
                         price={price}

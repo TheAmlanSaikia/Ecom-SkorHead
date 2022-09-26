@@ -1,7 +1,7 @@
 import Mockman from "mockman-js";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navigation } from "./components";
+import { Navigation, Toast } from "./components";
 import { RequireAuth } from "./components/Authentication/Auth";
 import { Cart } from "./pages/Cart/Cart";
 import { ErrorPage } from "./pages/Error/Error";
@@ -9,15 +9,18 @@ import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/LogIn/Login";
 import { Products } from "./pages/Product/Product";
 import { SignUp } from "./pages/SignUp/SignUp";
+import { SingleProductPage } from "./pages/SingleProduct/SingleProductPage";
 import { WishList } from "./pages/WishList/WishList";
 
 function App() {
   return (
     <div className='App'>
       <Navigation />
+      <Toast />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
+        <Route path="/products/:productId" element={<SingleProductPage />} />
         <Route
           path='/cart'
           element={
