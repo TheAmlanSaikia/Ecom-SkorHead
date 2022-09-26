@@ -1,0 +1,35 @@
+
+
+.body-loader{
+    width: 100vw;
+    height: 80vh;
+}
+
+.product-container{
+   width: 100vw;
+   height: 70vh;
+}
+
+.productpage-image{
+    object-fit: contain;
+}
+
+.singleProductImage{
+    width: 100%;
+    height: 100%;
+}
+
+.section-Image {
+    width: 50%;
+    height: 100%;
+}
+
+.section-text{
+    width: 50%;
+    height: 100%;
+}
+
+.btn-product-page{
+    width: 20%;
+    
+}

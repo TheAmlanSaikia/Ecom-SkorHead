@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../context";
 import { useWishlist } from "../../context/WishlistContext";
 import { addToCart, addToWishList, removeFromWishList } from "../../services";
+import { toast } from "react-toastify";
 import "./ProductVerticalCards.css";
 
 const VerticalCards = (props) => {
@@ -19,6 +20,7 @@ const VerticalCards = (props) => {
   const cartBtnHandler = () => {
     if (userLogin) {
       addToCart(props, cartDispatch);
+      toast.success("Added to Cart");
     } else {
       Navigate("/login", { replace: true });
     }
@@ -36,53 +38,55 @@ const VerticalCards = (props) => {
     } else {
       Navigate("/login", { replace: true });
     }
-
   };
 
-   /**
-    * @returns{Triggers addToWishist function}
-    */
+  /**
+   * @returns{Triggers addToWishist function}
+   */
   const addsToWishlist = () => {
-    if(userLogin){
-    addToWishList(props, wishlistDispatch);
-    }else{
-      Navigate("/login", { replace: true})
+    if (userLogin) {
+      addToWishList(props, wishlistDispatch);
+      toast.success("Added to Wishlist");
+    } else {
+      Navigate("/login", { replace: true });
     }
   };
-  
+
   /**
-   * @returns{Triggers removetoWishlist function} 
+   * @returns{Triggers removetoWishlist function}
    */
-  const removesFromWishlist= () =>{
-    removeFromWishList(props, wishlistDispatch)
-  }
-
-
+  const removesFromWishlist = () => {
+    removeFromWishList(props, wishlistDispatch);
+    toast.warn("Removed to Wishlist");
+  };
 
   return (
     <div>
-      <main key={props.id} className='vertical-cardbody card-shadow'>
+      <main key={props._id} className='vertical-cardbody card-shadow'>
         {props.inStock === false && (
           <section className='overlay-section'>
             <h3 className='overlay-text'> Out of stock </h3>
           </section>
         )}
-        <section className='image-container'>
-          <img
-            className='cover-image potrait-image'
-            loading='lazy'
-            src={props.image}
-            alt='Air-Jordan-1'
-          />
+        <section className='pointer image-container'>
+          <Link to={`/products/${props._id}`}>
+            <img
+              className='cover-image potrait-image'
+              loading='lazy'
+              src={props.image}
+              alt='Air-Jordan-1'
+            />
+          </Link>
         </section>
         <section className='information-container'>
           <div className='card-text-container'>
             <div className='title-container'>
               <h5 className='card-title title-icon'>{props.title}</h5>
-              {wishlistState.items.some((item) => item.id === props.id) ? (
+              {wishlistState.items.some((item) => item._id === props._id) ? (
                 <button
                   className='wishlist-btn wishlist-btn-hover themetext'
-                  onClick={() => removesFromWishlist()
+                  onClick={
+                    () => removesFromWishlist()
                     // wishlistDispatch({
                     //   type: "REMOVE_FROM_WISHLIST",
                     //   payload: props,
@@ -93,11 +97,8 @@ const VerticalCards = (props) => {
               ) : (
                 <button
                   className='wishlist-btn wishlist-btn-hover'
-                  onClick={() => addsToWishlist()
-                    // wishlistDispatch({
-                    //   type: "ADD_TO_WISHLIST",
-                    //   payload: props,
-                    // })
+                  onClick={
+                    () => addsToWishlist()
                   }>
                   <i className='fa-solid fa-heart fa-lg wishlist-icon'></i>
                 </button>
@@ -112,7 +113,7 @@ const VerticalCards = (props) => {
               </span>
             </h6>
           </div>
-          {cartState.products.some((item) => item.id === props.id) ? (
+          {cartState.products.some((item) => item._id === props._id) ? (
             <>
               <Link to='/cart'>
                 <button

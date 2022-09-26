@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useAuth } from "../../context";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const inputRef = useRef(null);
@@ -74,11 +75,14 @@ const Login = () => {
         setUser(foundUser.firstName);
         localStorage.setItem("token", encodedToken);
         navigate(from, { replace: true });
+        toast.success("Log In Succesful");
       } else {
         console.log("Something  went wrong");
+        toast.error("Log In Failed");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Log In Failed");
     }
   };
 

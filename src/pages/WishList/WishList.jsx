@@ -1,6 +1,7 @@
 import { Footer } from "../../components";
 import { useCart, useWishlist } from "../../context";
 import { useTitle } from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 import "./WishList.css";
 
 const WishList = () => {
@@ -29,7 +30,7 @@ const WishList = () => {
       <main className='main wishlist-main-container'>
         <div className='wishlist-container flex-row flex-wrap justify-center mt-2'>
           {wishlistState.items.map((item) => (
-            <main key={item.id} className='vertical-cardbody card-shadow'>
+            <main key={item._id} className='vertical-cardbody card-shadow'>
               <section className='image-container'>
                 <img
                   className='cover-image dismiss-image'
@@ -39,12 +40,13 @@ const WishList = () => {
                 />
                 <button
                   className='cross-btn'
-                  onClick={() =>
+                  onClick={() => {
                     wishlistDispatch({
                       type: "REMOVE_FROM_WISHLIST",
                       payload: item,
-                    })
-                  }>
+                    });
+                    toast.error("Removed from Wishlist");
+                  }}>
                   <i className='fa-solid fa-xmark cross-mark fa-xl'></i>
                 </button>
               </section>
@@ -73,6 +75,7 @@ const WishList = () => {
                       type: "REMOVE_FROM_WISHLIST",
                       payload: item,
                     });
+                    toast.success("Added to Cart");
                   }}>
                   Add to Cart
                 </button>
