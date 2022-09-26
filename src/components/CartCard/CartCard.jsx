@@ -1,6 +1,6 @@
 import { useCart } from "../../context";
 import { changeOfProducts, deleteFromCart } from "../../services";
-import { toast, Toast } from "react-toastify";
+import { toast } from "react-toastify";
 const CartCard = (props) => {
   const { cartDispatch } = useCart();
 
