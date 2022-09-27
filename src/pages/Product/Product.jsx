@@ -5,6 +5,7 @@ import {
   CategoryFilter,
   Footer,
   PriceFilter,
+  PriceRangeFilter,
   VerticalCards,
 } from "../../components";
 import { CircularProgress } from "@mui/material";
@@ -84,6 +85,7 @@ const Products = () => {
 
             <ul className='list-style-none filter-list'>
               <PriceFilter />
+              <PriceRangeFilter />
               <CategoryFilter />
               <BrandFilter />
             </ul>
