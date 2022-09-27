@@ -20,7 +20,7 @@ const FilterProvider = ({ children }) => {
       Adidas: false,
     },
     inStock: false,
-    maxPrice: 20000,
+    maxPrice: '20000',
   });
 
   return (

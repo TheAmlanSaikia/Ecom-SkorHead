@@ -29,7 +29,7 @@ const PriceRangeFilter = () => {
             <input
               type='range'
               value={maxPrice}
-              min='0'
+              min= '0'
               max='20000'
               onChange={(e) =>
                 dispatch({ type: "SET_PRICERANGE", payload: e.target.value })

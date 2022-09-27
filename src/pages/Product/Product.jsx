@@ -17,6 +17,7 @@ import {
   getCategoryFilteredProducts,
   getBrandFilteredProducts,
   getStockFilteredProducts,
+  getPricedFilteredProducts,
 } from "../../utility";
 import "./Product.css";
 
@@ -49,8 +50,12 @@ const Products = () => {
     sortedProducts,
     state.inStock
   );
-  const categoryfilteredProducts = getCategoryFilteredProducts(
+  const priceFilteredProducts = getPricedFilteredProducts(
     inStockedProducts,
+    state.maxPrice
+  );
+  const categoryfilteredProducts = getCategoryFilteredProducts(
+    priceFilteredProducts,
     state.categories
   );
   const brandfilteredProducts = getBrandFilteredProducts(
