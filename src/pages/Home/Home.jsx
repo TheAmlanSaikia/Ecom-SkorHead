@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
 import { useFilter } from "../../context";
 
-
 const Home = () => {
- 
   useTitle("Home");
   const { dispatch } = useFilter();
 
@@ -28,7 +26,7 @@ const Home = () => {
         <Link
           to='/products'
           className='btn btn-primary-round btn-primary-outline banner-btn absolute'
-           onClick={() => dispatch({ type: "ALL_CLEAR", payload: "" })}>
+          onClick={() => dispatch({ type: "ALL_CLEAR", payload: "" })}>
           <h5>Take Me!</h5>
         </Link>
       </header>
@@ -42,7 +40,7 @@ const Home = () => {
           <CategoriesCards />
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );

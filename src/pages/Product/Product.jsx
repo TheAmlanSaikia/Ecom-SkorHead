@@ -16,6 +16,7 @@ import {
   getSortedProducts,
   getCategoryFilteredProducts,
   getBrandFilteredProducts,
+  getStockFilteredProducts,
 } from "../../utility";
 import "./Product.css";
 
@@ -44,8 +45,12 @@ const Products = () => {
 
   const { state, dispatch } = useFilter();
   const sortedProducts = getSortedProducts(productList, state.sortBy);
-  const categoryfilteredProducts = getCategoryFilteredProducts(
+  const inStockedProducts = getStockFilteredProducts(
     sortedProducts,
+    state.inStock
+  );
+  const categoryfilteredProducts = getCategoryFilteredProducts(
+    inStockedProducts,
     state.categories
   );
   const brandfilteredProducts = getBrandFilteredProducts(

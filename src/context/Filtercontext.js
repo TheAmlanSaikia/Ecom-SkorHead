@@ -19,6 +19,8 @@ const FilterProvider = ({ children }) => {
       Vans: false,
       Adidas: false,
     },
+    inStock: false,
+    maxPrice: 20000,
   });
 
   return (

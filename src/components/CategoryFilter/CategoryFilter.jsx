@@ -6,7 +6,6 @@ const CategoryFilter = () => {
   const { ChuckTaylor, BasketBall, Authentic, Running, SlipOn } = categories;
 
   return (
-
     <div>
       <li className='filter-category-container'>
         <div className='filter-shoetype-container'>
@@ -17,9 +16,10 @@ const CategoryFilter = () => {
               name='category'
               className='form-checkbox-field'
               value='ChuckTaylor'
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY_FILTER", payload: e.target.value })
-              }
+              onChange={(e) => {
+                dispatch({ type: "CATEGORY_FILTER", payload: e.target.value });
+                console.log(e.target.value);
+              }}
               checked={ChuckTaylor}
             />
             Chuck Taylor
