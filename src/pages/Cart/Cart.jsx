@@ -5,10 +5,13 @@ import { useTitle } from "../../hooks/useTitle";
 import "./Cart.css";
 import { useEffect, useState } from "react";
 import { fetchCartProducts } from "../../services";
+import { CircularProgress } from "@mui/material";
 
 const Cart = () => {
   const { cartState } = useCart();
   const [cartProducts, setCartProducts] = useState([]);
+  const [loader, setLoader] = useState(true);
+
   useTitle("Cart");
 
   useEffect(() => {
@@ -16,10 +19,18 @@ const Cart = () => {
     (async () => {
       fetchCart = await fetchCartProducts();
       setCartProducts(fetchCart);
+      setLoader(false);
     })();
   }, [cartState.products]);
 
   return (
+     <>
+     {loader ? (
+        <div className='flex-center body-loader'>
+          <CircularProgress size={70} />
+        </div>
+      ) : (
+
     <div className='cart-grid-container'>
       <header className='header header-container'>
         <div className='header-box flex-row justify-center'>
@@ -92,6 +103,8 @@ const Cart = () => {
       </main>
       <footer />
     </div>
+      )}
+    </>
   );
 };
 
