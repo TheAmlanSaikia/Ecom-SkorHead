@@ -9,7 +9,7 @@ export const removeFromWishList = async (product, wishlistDispatch) => {
       },
     };
     const response = await axios.delete(
-      `${WISHLIST}/:${product.id}`,config
+      `${WISHLIST}/:${product._id}`,config
     );
     console.log(response);
     wishlistDispatch({

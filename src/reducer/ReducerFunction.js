@@ -2,6 +2,13 @@ const ReducerFunction = (state, { type, payload }) => {
   switch (type) {
     case "SORT_BY":
       return { ...state, sortBy: payload };
+
+    case "REMOVE_OUTOFSTOCK":
+      return { ...state, inStock: !state.inStock };
+
+    case "SET_PRICERANGE":
+      return { ...state, maxPrice: payload };
+
     case "CATEGORY_FILTER":
       return {
         ...state,
@@ -16,6 +23,7 @@ const ReducerFunction = (state, { type, payload }) => {
         brands: { ...state["brands"], [payload]: !state["brands"][payload] },
       };
     }
+
     case "ALL_CLEAR": {
       return {
         sortBy: "",
@@ -32,25 +40,36 @@ const ReducerFunction = (state, { type, payload }) => {
           Vans: false,
           Adidas: false,
         },
+        inStock: false,
+        maxPrice: 20000,
       };
     }
 
-    case "ADD_CATEGORIES":{
+    case "ADD_CATEGORIES": {
       return {
-         ...state,
-         categories: {...state["categories"], [payload]: true}
-      }
+        ...state,
+        categories: { ...state["categories"], [payload]: true },
+      };
     }
 
-    case "ADD_CATEGORIES_FROM_HOME":{
-      return{
+    case "ADD_CATEGORIES_FROM_HOME": {
+      return {
         ...state,
-        categories: {[payload]: true }
-      }
+        sortBy: "",
+        inStock: false,
+        maxPrice: 20000,
+        brands: {
+          Nike: false,
+          Converse: false,
+          Vans: false,
+          Adidas: false,
+        },
+        categories: { [payload]: true },
+      };
     }
 
     default:
-        throw new Error("Action type not found.");
+      throw new Error("Action type not found.");
   }
 };
 

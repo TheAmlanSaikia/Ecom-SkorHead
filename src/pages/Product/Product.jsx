@@ -5,6 +5,7 @@ import {
   CategoryFilter,
   Footer,
   PriceFilter,
+  PriceRangeFilter,
   VerticalCards,
 } from "../../components";
 import { CircularProgress } from "@mui/material";
@@ -15,6 +16,8 @@ import {
   getSortedProducts,
   getCategoryFilteredProducts,
   getBrandFilteredProducts,
+  getStockFilteredProducts,
+  getPricedFilteredProducts,
 } from "../../utility";
 import "./Product.css";
 
@@ -43,8 +46,16 @@ const Products = () => {
 
   const { state, dispatch } = useFilter();
   const sortedProducts = getSortedProducts(productList, state.sortBy);
-  const categoryfilteredProducts = getCategoryFilteredProducts(
+  const inStockedProducts = getStockFilteredProducts(
     sortedProducts,
+    state.inStock
+  );
+  const priceFilteredProducts = getPricedFilteredProducts(
+    inStockedProducts,
+    state.maxPrice
+  );
+  const categoryfilteredProducts = getCategoryFilteredProducts(
+    priceFilteredProducts,
     state.categories
   );
   const brandfilteredProducts = getBrandFilteredProducts(
@@ -84,6 +95,7 @@ const Products = () => {
 
             <ul className='list-style-none filter-list'>
               <PriceFilter />
+              <PriceRangeFilter />
               <CategoryFilter />
               <BrandFilter />
             </ul>
@@ -91,7 +103,12 @@ const Products = () => {
 
           <main className='main main-container-product'>
             <div className='products-cards-display flex-row flex-wrap p-3'>
-              {productList &&
+              {lengthOfProducts === 0 ? (
+                <div className='flex-center body-loader'>
+                  <h2>Oops! No Products.</h2>
+                </div>
+              ) : (
+                productList &&
                 brandfilteredProducts.map(
                   ({
                     _id,
@@ -116,7 +133,8 @@ const Products = () => {
                       description={description}
                     />
                   )
-                )}
+                )
+              )}
             </div>
           </main>
           <Footer />
