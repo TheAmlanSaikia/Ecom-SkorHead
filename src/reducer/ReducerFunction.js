@@ -55,6 +55,15 @@ const ReducerFunction = (state, { type, payload }) => {
     case "ADD_CATEGORIES_FROM_HOME": {
       return {
         ...state,
+        sortBy: "",
+        inStock: false,
+        maxPrice: 20000,
+        brands: {
+          Nike: false,
+          Converse: false,
+          Vans: false,
+          Adidas: false,
+        },
         categories: { [payload]: true },
       };
     }
