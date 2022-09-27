@@ -103,7 +103,12 @@ const Products = () => {
 
           <main className='main main-container-product'>
             <div className='products-cards-display flex-row flex-wrap p-3'>
-              {productList &&
+              {lengthOfProducts === 0 ? (
+                <div className='flex-center body-loader'>
+                  <h2>Oops! No Products.</h2>
+                </div>
+              ) : (
+                productList &&
                 brandfilteredProducts.map(
                   ({
                     _id,
@@ -128,7 +133,8 @@ const Products = () => {
                       description={description}
                     />
                   )
-                )}
+                )
+              )}
             </div>
           </main>
           <Footer />
