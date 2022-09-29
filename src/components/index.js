@@ -10,5 +10,6 @@ import { CartCard } from "./CartCard/CartCard";
 import { CheckOut } from "./CheckoutCart/Checkout";
 import { PriceRangeFilter } from "./PriceRangeFilter/PriceRangeFilter";
 import { Toast } from "./Toast/Toast";
-
-export { CartCard,CheckOut ,Navigation, Logo, CategoriesCards,Footer,PriceFilter, CategoryFilter,BrandFilter,VerticalCards, Toast, PriceRangeFilter };
+import { AddressCard } from "./AddressCard/AddressCard";
+import { AddressModal } from "./AddressModal/AddressModal";
+export {AddressModal, AddressCard,CartCard,CheckOut ,Navigation, Logo, CategoriesCards,Footer,PriceFilter, CategoryFilter,BrandFilter,VerticalCards, Toast, PriceRangeFilter };
