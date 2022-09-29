@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth, useCart } from "../../context";
+import { useAuth, useCart } from "../../../../context/index";
 
-const CheckOut = () => {
+const AddressCheckOut = () => {
   const { cartState } = useCart();
   const Navigate = useNavigate();
   const { userLogin } = useAuth();
@@ -13,6 +13,7 @@ const CheckOut = () => {
     if (userLogin) {
       console.log("Working")
       Navigate("/address", { replace: true });
+      // <Navigate to='/address' replace={false} />;
     } else {
       Navigate("/login", { replace: true });
     }
@@ -43,7 +44,7 @@ const CheckOut = () => {
           <button
             onClick={addressPagehandler}
             className='btn-card btn-checkout mt-3 wishlist-btn-hover ml-auto mr-auto'>
-            SELECT ADDRESS
+            PAY NOW
           </button>
         </div>
       </div>
@@ -51,4 +52,4 @@ const CheckOut = () => {
   );
 };
 
-export { CheckOut };
+export { AddressCheckOut };

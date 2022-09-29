@@ -49,7 +49,6 @@ function App() {
         />
 
         <Route path='*' element={<ErrorPage />} />
-        <Route path ='/address' element={<AddressManagement />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/mock' element={<Mockman />} />

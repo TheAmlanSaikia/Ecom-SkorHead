@@ -3,6 +3,7 @@ import { AddressCard, AddressModal, CheckOut } from "../../components";
 import { userData } from "../../data/AddressData";
 import { AddressReducerFunction } from "../../reducer/AddressReducer";
 import "./Address.css";
+import { AddressCheckOut } from "./Component/AddressCheckout/AddressCheckout";
 
 const AddressManagement = () => {
   const [open, setOpen] = useState(false);
@@ -61,7 +62,7 @@ const AddressManagement = () => {
             <AddressModal addressState={addressState} addressDispatch={addressDispatch} open={open} setOpen={setOpen} />
           </ul>
         </div>
-        <CheckOut />
+       <AddressCheckOut />
       </main>
     </div>
   );
