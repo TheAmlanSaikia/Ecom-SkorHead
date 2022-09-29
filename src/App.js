@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navigation, Toast } from "./components";
 import { RequireAuth } from "./components/Authentication/Auth";
+import { AddressManagement } from "./pages/Address/Address";
 import { Cart } from "./pages/Cart/Cart";
 import { ErrorPage } from "./pages/Error/Error";
 import { Home } from "./pages/Home/Home";
@@ -29,6 +30,14 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path='/address'
+          element={
+            <RequireAuth>
+              <AddressManagement />
+            </RequireAuth>
+          }
+        />
 
         <Route
           path='/wishlist'
@@ -38,7 +47,9 @@ function App() {
             </RequireAuth>
           }
         />
+
         <Route path='*' element={<ErrorPage />} />
+        <Route path ='/address' element={<AddressManagement />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/mock' element={<Mockman />} />

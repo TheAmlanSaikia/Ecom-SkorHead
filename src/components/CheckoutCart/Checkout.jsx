@@ -28,7 +28,7 @@ const CheckOut = () => {
             <h6>Total</h6>
             <h6>₹{TotalBill-299}</h6>
           </div>
-          <button className=' btn-card btn-checkout mt-3 ml-auto mr-auto'>
+          <button className='btn-card btn-checkout mt-3 ml-auto mr-auto'>
             CHECK OUT
           </button>
         </div>

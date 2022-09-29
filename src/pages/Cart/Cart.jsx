@@ -62,10 +62,10 @@ const Cart = () => {
             <div className='checkout-list-container flex-column'>
               <h5 className='checkout-list-title mt-2 ml-2'> Shopping Bag </h5>
               <p className='text-md ml-2 mt-1'>
-                You have {cartState.products && cartState.products.length}
+                You have {cartState.products && cartState.products.length}{" "}
                   items in your cart
               </p>
-              <hr /> {console.log(cartProducts)}
+              <hr /> 
               <ul className='checkout-card-list list-style-none ml-2'>
                 
                 {cartState.products.map(

@@ -1,0 +1,11 @@
+.formBox{
+    width: 100%;
+
+ }
+ .inputBox{
+    width: 70%;
+    text-align: center;
+    margin-left: 17%;
+    border: 2px solid black;
+    
+ }
