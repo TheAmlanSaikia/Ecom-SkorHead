@@ -1,5 +1,5 @@
 import { useState, useReducer } from "react";
-import { AddressCard, AddressModal, CheckOut } from "../../components";
+import { AddressCard, AddressModal } from "../../components";
 import { userData } from "../../data/AddressData";
 import { AddressReducerFunction } from "../../reducer/AddressReducer";
 import "./Address.css";
